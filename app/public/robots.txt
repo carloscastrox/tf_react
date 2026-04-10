@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tf_gastos.vercel.app/sitemap.xml
