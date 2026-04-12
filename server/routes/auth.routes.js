@@ -59,10 +59,10 @@ router.post("/register", async (req, res) => {
   try {
     await connectDB();
 
-    const { email, password, name } = req.body;
+    const { email, password, fullName } = req.body;
 
     //  validar campos
-    if (!email || !password || !name) {
+    if (!email || !password || !fullName) {
       return res.status(400).json({ msg: "Todos los campos son obligatorios" });
     }
 
@@ -81,7 +81,7 @@ router.post("/register", async (req, res) => {
     const user = await User.create({
       email: normalizedEmail,
       password: hashed,
-      name,
+      fullName,
     });
 
     //  respuesta
@@ -90,7 +90,7 @@ router.post("/register", async (req, res) => {
       user: {
         id: user._id,
         email: user.email,
-        name: user.name,
+        fullName: user.fullName,
       },
     });
   } catch (error) {
