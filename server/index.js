@@ -56,7 +56,7 @@ const connectDB = async () => {
 await connectDB();
 
 // 3. Rutas
-app.get("/", (req, res) => res.send("API GastoDiario Online"));
+app.get("/", (req, res) => res.send("API GastosDiario Online By TF React"));
 
 app.use("/api/auth", authRoutes);
 
