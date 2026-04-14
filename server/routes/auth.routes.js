@@ -63,7 +63,7 @@ router.post("/register", async (req, res) => {
 
     //  validar campos
     if (!email || !password || !fullName) {
-      return res.status(400).json({ msg: "Todos los campos son obligatorios" });
+      return res.status(400).json({ message: "Todos los campos son obligatorios" });
     }
 
     const normalizedEmail = email.toLowerCase();
@@ -71,7 +71,7 @@ router.post("/register", async (req, res) => {
     //  verificar si existe
     const exist = await User.findOne({ email: normalizedEmail });
     if (exist) {
-      return res.status(400).json({ msg: "Usuario ya existe" });
+      return res.status(400).json({ message: "Usuario ya existe" });
     }
 
     //  hash contraseña
@@ -95,7 +95,7 @@ router.post("/register", async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ msg: "Error del servidor" });
+    res.status(500).json({ message: "Error del servidor" });
   }
 });
 // LOGIN
@@ -105,10 +105,10 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
-  if (!user) return res.status(400).json({ msg: "Usuario no existe" });
+  if (!user) return res.status(400).json({ message: "Usuario no existe" });
 
   const ok = await bcrypt.compare(password, user.password);
-  if (!ok) return res.status(400).json({ msg: "Contraseña incorrecta" });
+  if (!ok) return res.status(400).json({ message: "Contraseña incorrecta" });
 
   res.json({
     id: user._id,
