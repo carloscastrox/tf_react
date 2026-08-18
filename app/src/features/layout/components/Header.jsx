@@ -83,18 +83,24 @@ export const Header = () => {
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         <Box sx={{ width: 250 }} role="presentation">
           <List>
-            {menuItems.map((item) => (
-              <ListItem key={item.text} disablePadding>
-                <ListItemButton
-                  component={HashLink} // 1. Cambiar "a" por HashLink
-                  smooth               // 2. Opcional: mantener el scroll suave si usas anclas
-                  to={item.link}       // 3. Cambiar "href" por "to"
-                  onClick={toggleDrawer(false)}
-                >
-                  <ListItemText primary={item.text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            {/* Dentro de tu Drawer, reemplaza el map por esto: */}
+            {menuItems.map((item) => {
+              // Verificamos si es un enlace de ancla (empieza con /#)
+              const isHash = item.link.includes("#");
+
+              return (
+                <ListItem key={item.text} disablePadding>
+                  <ListItemButton
+                    component={isHash ? HashLink : NavLink}
+                    smooth={isHash ? true : undefined}
+                    to={item.link}
+                    onClick={toggleDrawer(false)}
+                  >
+                    <ListItemText primary={item.text} />
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
 
             <ListItem>
               <Button
