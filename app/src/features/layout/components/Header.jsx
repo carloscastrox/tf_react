@@ -86,8 +86,9 @@ export const Header = () => {
             {menuItems.map((item) => (
               <ListItem key={item.text} disablePadding>
                 <ListItemButton
-                  component="a"
-                  href={item.link}
+                  component={HashLink} // 1. Cambiar "a" por HashLink
+                  smooth               // 2. Opcional: mantener el scroll suave si usas anclas
+                  to={item.link}       // 3. Cambiar "href" por "to"
                   onClick={toggleDrawer(false)}
                 >
                   <ListItemText primary={item.text} />
