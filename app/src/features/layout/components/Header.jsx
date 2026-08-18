@@ -28,7 +28,7 @@ export const Header = () => {
   };
 
   const menuItems = [
-    { text: "Inicio", link: "/#" },
+    { text: "Inicio", link: "/" },
     { text: "Beneficios", link: "/#beneficios" },
     { text: "Cómo funciona", link: "/#como-funciona" },
     { text: "Precios", link: "/#precios" },
