@@ -27,10 +27,10 @@ export const AppRoutes = () => {
 
   return (
     <HashRouter>
-      <Routes>
+      <Routes >
         {/* RUTAS PÚBLICAS (CON HEADER + FOOTER) */}
         <Route element={<PublicRoutes />}>
-          <Route
+          <Route exact
             path="/"
             element={
               <>
