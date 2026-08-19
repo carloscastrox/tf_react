@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Rutas públicas
 import { PublicRoutes } from "./features/layout/components/PublicRoutes";
@@ -30,7 +30,7 @@ export const AppRoutes = () => {
       <Routes >
         {/* RUTAS PÚBLICAS (CON HEADER + FOOTER) */}
         <Route element={<PublicRoutes />}>
-          <Route exact
+          <Route
             path="/"
             element={
               <>
