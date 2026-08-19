@@ -26,7 +26,7 @@ import { CharactersAxios } from "./shared/components/ApiAxios";
 export const AppRoutes = () => {
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes >
         {/* RUTAS PÚBLICAS (CON HEADER + FOOTER) */}
         <Route element={<PublicRoutes />}>
@@ -62,6 +62,6 @@ export const AppRoutes = () => {
         />
 
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
